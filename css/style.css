@@ -1,0 +1,61 @@
+body {
+    background-color: #EC7D1B;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Open Sans, sans-serif;
+}
+
+.container {
+    background-color: #212121;
+    width: 20em; min-width: 320px;
+    padding: 1em;
+    border-radius: .3em;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    margin: auto;
+    color: rgba(255, 255, 255, 0.4);
+}
+input, select, .button{
+    background-color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+}
+img {
+    width: 50%;
+	margin:auto;
+    display:block;
+    margin-bottom: 1rem;
+}
+label {
+	color: #EC7D1B;
+}
+h1 {
+	color: #EC7D1B;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+input[type=text], input[type=email]{
+    margin-bottom: 1rem;
+    color: whitesmoke;
+    text-align: center;
+}
+select {
+    margin-bottom: 1rem;
+    color: #EC7D1B;
+    text-align: center;
+}
+input[type=submit], .button{
+    color: #EC7D1B;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+input[type=submit]:hover, .button:hover {
+    border: 1px solid #EC7D1B;
+}
+.button {
+    display:block;
+    text-decoration: none;
+}
