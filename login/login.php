@@ -1,12 +1,11 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-php_info();
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config.php';
 require __DIR__ . '/../classes/user.php';
 use RestCord\DiscordClient;
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if(isset($_SESSION["user"])){
     display();
     exit();
@@ -31,27 +30,17 @@ if (isset($_GET['code'])) {
 	// Get the guilds and connections.
 	$guilds = $user->guilds;
     if(in_guild($config->discord_server_id, $guilds)){
-        
         try {
-            $client = new GuzzleHttp\Client();
-            $res = $client->get('https://discordapp.com/api/guilds/' . $config->discord_server_id . '/members/' . $user->id, [
-                'headers' =>  ['Authorization' => $config->discord_bot_api_key]
-            ]);
-            $json_response = json_decode($res->getBody());
-        } catch (Exception $e) {
-            $error = "Unable to process your request. Try again later.";
-            display(null, $error);
-            exit();
-        }
-        if($res->getStatusCode() == 200){
-            $_SESSION["user"] = new User($user->id, $json_response->roles, $json_response->nick, $user->username, $user->discriminator);
+            $_SESSION["user"] = new User($user->id, $user->username, $user->discriminator);
             display();
             exit();
-        } else {
-            $error = "Unable to process your request. Try again later.";
-            display(null, $error);
+        } catch (Exception $e) {
+            $error = "Unable to process your request.";
+            $auth_url = $provider->getAuthorizationUrl(array('scope' => ['identify', 'guilds']));
+            display($auth_url, $error);
             exit();
         }
+        
     } else {
         $error = "You are not in the right server.";
         display(null, $error);

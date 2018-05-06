@@ -1,9 +1,13 @@
-body {
-    background-color: #EC7D1B;
-    min-height: 100vh;
+.page {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+body {
+    margin: 0;
+    background-color: #35383c;
+    min-height: 100vh;
     font-family: Open Sans, sans-serif;
 }
 
@@ -18,7 +22,6 @@ body {
 }
 input, select, .button{
     background-color: inherit;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 100%;
     padding: 0.5em;
     box-sizing: border-box;
@@ -29,7 +32,7 @@ img {
     display:block;
     margin-bottom: 1rem;
 }
-label {
+label, a {
 	color: #EC7D1B;
 }
 h1 {
@@ -38,19 +41,28 @@ h1 {
     font-weight: bold;
 }
 input[type=text], input[type=email]{
+    border:0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 1rem;
     color: whitesmoke;
-    text-align: center;
+    text-align: left;
+    transition: 0.5s;
+}
+input[type=text]:focus, input[type=email]:focus{
+    border-bottom: 1px solid #EC7D1B;
+    transition: 0.5s;
 }
 select {
     margin-bottom: 1rem;
     color: #EC7D1B;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 input[type=submit], .button{
     color: #EC7D1B;
     font-size: 1.1rem;
     font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 input[type=submit]:hover, .button:hover {
     border: 1px solid #EC7D1B;
@@ -58,4 +70,111 @@ input[type=submit]:hover, .button:hover {
 .button {
     display:block;
     text-decoration: none;
+    margin-bottom: 1rem;
 }
+.logout {
+    color: #cc4b37;
+}
+.logout:hover {
+    border: 1px solid #cc4b37;
+}
+.login {
+    color: #3adb76;
+}
+.login:hover {
+    border: 1px solid #3adb76;
+}
+
+/*LR Header*/
+.lr-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color: #212121;
+    padding: 1em;
+    align-items: center;
+    margin: 1vh 1vw;
+    border-radius: .3em;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+}
+
+.lr-header-title {
+    padding: 0rem 0.5rem;
+}
+.lr-header-logo {
+    max-height: 14vh;
+    margin-bottom: 0;
+}
+
+.lr-header-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+}
+
+.lr-header-item {
+    /* max-width: 300px; */
+    width: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 1vw;
+    padding: 2vh 1vw;
+    transition: all 0.5s;
+}
+/* .lr-header-item:hover {
+    background-color: #00AF52;
+    color: #333333;
+} */
+.lr-header-item.input-group {
+    margin-bottom: 0;
+}
+label.lr-header-responsive-button {
+    display: none !important;
+}
+@media print, screen and (max-width: 30em) {
+    .lr-header {
+
+    }
+    .lr-header, .lr-header-items{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+
+    }
+    .lr-header-items {
+        display: none;
+
+    }
+    .lr-header-item {
+        width: 100%;
+    }
+    .lr-header-item, .lr-header-title, .lr-header-responsive-button {
+        margin-bottom: 1vh !important;
+    }
+    label.lr-header-responsive-button{
+        display: block !important;
+    }
+    input[type=checkbox]:checked ~ .lr-header-items {
+        display: flex;
+    }
+    input[type=checkbox] ~ .lr-header-responsive-button {
+        color: #3adb76;
+    }
+    input[type=checkbox]:checked ~ .lr-header-responsive-button {
+        color: #cc4b37;
+    }
+    input[type=checkbox] ~ .lr-header-responsive-button::before {
+        content: "Open menu ";
+    }
+    input[type=checkbox]:checked ~ .lr-header-responsive-button::before {
+        content: "Close menu ";
+    }
+}
+
+/* End of header */

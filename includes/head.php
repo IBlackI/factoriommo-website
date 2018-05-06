@@ -10,3 +10,5 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
+	<?php include __DIR__ . "/views/header.php"; ?>
+	<div class="page">
