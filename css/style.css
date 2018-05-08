@@ -124,6 +124,33 @@ input[type=submit]:hover, .button:hover {
     padding: 2vh 1vw;
     transition: all 0.5s;
 }
+.lr-header-submenu ul{
+    display:none;
+    position: absolute;
+    background-color: #212121;
+    border: 1px #EC7D1B solid;
+    padding: 1em;
+    margin-top: 0;
+    margin-left: 1vw;
+    border-radius: .3em;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
+    z-index: 1;
+    transition: 300ms;
+}
+
+.lr-header-submenu:hover > ul, .lr-header-submenu:hover{
+    display: block;
+}
+
+.lr-header-submenu-checkbox{
+    display:none;
+}
+
+.lr-header-submenu-checkbox-label{
+    display:none;
+    padding: 2vh 2vw;
+}
+
 /* .lr-header-item:hover {
     background-color: #00AF52;
     color: #333333;
@@ -151,8 +178,24 @@ label.lr-header-responsive-button {
         display: none;
 
     }
-    .lr-header-item {
+    .lr-header-item, .lr-header-submenu {
         width: 100%;
+    }
+    .lr-header-submenu .button {
+        margin-left: 0;
+    }
+    .lr-header-submenu ul  {
+        position: relative;
+        width:auto;
+    }
+    .lr-header-submenu a{
+        display:none;
+    }
+    .lr-header-submenu-checkbox-label{
+        display:block;
+    }
+    .lr-header-submenu-checkbox:checked+ul{
+        display:block;
     }
     .lr-header-item, .lr-header-title, .lr-header-responsive-button {
         margin-bottom: 1vh !important;

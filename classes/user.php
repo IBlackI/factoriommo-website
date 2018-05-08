@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/role.php';
 class User
 {
     public $id;
@@ -27,7 +28,11 @@ class User
         ]);
         $json_response = json_decode($res->getBody());
         if($res->getStatusCode() == 200){
-            $this->roles = $json_response->roles;
+            $roles = array();
+            foreach($json_response->roles as $role){
+                $roles[] = new Role($role);
+            }
+            $this->roles = $roles;
             $this->nickname = $json_response->nick;
         } else {
             throw new Exception();

@@ -16,22 +16,7 @@ if(isset($_SESSION["user"])){
     echo("<p>You got the following discord roles: ");
     $roles = "";
     foreach($user->roles as $role) {
-        switch($role) {
-            case "231469819147452416":
-                //hands
-                $roles .= "Hands, ";
-                break;
-            case "260086178810822656":
-                //crew
-                $roles .= "Crew, ";
-                break;
-            case "230711907860873216":
-                //Aliens
-                $roles .= "Aliens, ";
-                break;
-            default:
-                $roles .= "$role, ";
-        }
+        $roles .= $role->getName() . ", ";
     }
     $roles = rtrim($roles, ", ");
     echo ("$roles</p>");

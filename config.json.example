@@ -4,5 +4,6 @@
    "discord_app_client_id":"963852",
    "discord_app_client_secret":"adsfxasdfwfefawefw",
    "discord_bot_api_key":"Bot asSNOds4.d5.asdfwe",
-   "banlist_url":"http://localhost/banlist/dummyjson.php"
+   "banlist_url":"http://localhost/banlist/dummyjson.php",
+   "roles" : [{"231469819147452416":"Hands"},{"260086178810822656":"Crew"},{"230711907860873216":"Aliens"}]
 }
