@@ -89,7 +89,7 @@ input[type=submit]:hover, .button:hover {
 .lr-header {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: flex-end;
     background-color: #212121;
     padding: 1em;
     align-items: center;
@@ -103,6 +103,7 @@ input[type=submit]:hover, .button:hover {
 }
 .lr-header-logo {
     max-height: 14vh;
+    max-width: 14vh;
     margin-bottom: 0;
 }
 
