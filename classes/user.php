@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/role.php';
+require_once __DIR__ . '/rpg.php';
 class User
 {
     public $id;
@@ -10,6 +11,7 @@ class User
     public $discordName;
     public $discordDiscriminator;
     public $notes;
+    public $rpg;
 
     public function __construct($id, $discordName, $discordDiscriminator, $factorioIGN = null){
         $this->id = $id;
@@ -18,6 +20,7 @@ class User
         $this->discordDiscriminator = $discordDiscriminator;        
         $this->factorioIGN = $factorioIGN;
         $this->refreshNotes();
+        $this->rpg = new RPG($this->id);
     }
 
     public function refreshDiscordAdditionalInformation(){

@@ -24,5 +24,15 @@ if(isset($_SESSION["user"])){
         echo ("<a class='button' href='login/ign.php'>Change Factorio In-Game Name</a>");
     }
     echo ("<a class='button logout' href='login/logout.php'>Logout</a>");
+    if(isset($user->rpg)){
+
+    }
+    echo("XP Banked: " . $user->rpg->getBank() . "<br />");
+    echo("Builder: " . $user->rpg->getBuilder() . "<br />");
+    echo("Engineer: " . $user->rpg->getEngineer() . "<br />");
+    echo("Miner: " . $user->rpg->getMiner() . "<br />");
+    echo("Scientist: " . $user->rpg->getScientist() . "<br />");
+    echo("Soldier: " . $user->rpg->getSoldier() . "<br />");
+
     echo ("</div>");
 }
