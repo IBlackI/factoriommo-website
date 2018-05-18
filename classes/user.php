@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/role.php';
 require_once __DIR__ . '/rpg.php';
+require_once __DIR__ . '/note.php';
 class User
 {
     public $id;
@@ -50,6 +51,9 @@ class User
             $json_response = json_decode($res->getBody());
             if($res->getStatusCode() == 200){
                 $notes = array();
+                foreach($json_response as $note){
+                    $notes[] = new Note($note->type, $note->reason,$note->issuer, $note->date);
+                }
                 $this->notes = $notes;
             } else {
                 throw new Exception();

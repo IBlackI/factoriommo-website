@@ -38,7 +38,12 @@ class RPG
 
     private function returnFormat($exp, $showExp){
         if($showExp){
-            return $exp;
+            if($exp == null) {
+                return 0;
+            } else {
+                return $exp;
+            }
+        
         } else {
             return $this->getLevel($exp);
         }

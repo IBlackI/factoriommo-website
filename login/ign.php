@@ -13,6 +13,7 @@ if(isset($_POST) && isset($_POST["fign"]) && !empty($_POST["fign"])){
     if(preg_match("/^[A-Za-z\.\_0-9]+$/", $_POST["fign"])){
         $_SESSION["user"]->factorioIGN = $_POST["fign"];
         $error = "Changed your IGN to: " . $_SESSION["user"]->factorioIGN . " <br /> Note saving across sessions is not implemented yet";
+        $_SESSION["user"]->refreshNotes();
     } else {
         $error = "Invalid FactorioIGN. :-(";
     }
